@@ -5,17 +5,21 @@ import { AppComponent } from './app.component';
 import { CatDishComponent } from './components/cat-dish/cat-dish.component';
 import { CatFeederComponent } from './components/cat-feeder/cat-feeder.component';
 import { FeederService } from './services/feeder.service';
+import { provideHttpClient } from '@angular/common/http';
+import { CatFactsComponent } from './components/cat-facts/cat-facts.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CatDishComponent,
-    CatFeederComponent
+    CatFeederComponent,
+    CatFactsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    
   ],
-  providers: [FeederService],
+  providers: [FeederService, provideHttpClient()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
