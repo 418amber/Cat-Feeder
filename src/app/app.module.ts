@@ -4,12 +4,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { CatDishComponent } from './components/cat-dish/cat-dish.component';
 import { CatFeederComponent } from './components/cat-feeder/cat-feeder.component';
-import { FeederService } from './services/feeder.service';
-import { provideHttpClient } from '@angular/common/http';
 import { CatFactsComponent } from './components/cat-facts/cat-facts.component';
-import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+
+import { FeederService } from './services/feeder.service';
+import { provideHttpClient } from '@angular/common/http';
+import { DataService } from './services/data.service';
+
+import { Routes, RouterModule } from '@angular/router';
+
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -34,7 +38,7 @@ const routes: Routes = [
   exports: [
     RouterModule
   ],
-  providers: [FeederService, provideHttpClient()],
+  providers: [FeederService, DataService, provideHttpClient()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
