@@ -10,7 +10,6 @@ import { takeUntil } from 'rxjs/operators';
 })
 export class CatDishComponent implements OnInit, OnDestroy {
   private numFish: number = 0;
-  private fishCount: any;
   private destroy$ = new Subject<void>();
 
   constructor(private feederService: FeederService) { }

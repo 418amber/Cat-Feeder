@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cat-facts',
@@ -9,7 +10,7 @@ import { DataService } from '../../services/data.service';
 export class CatFactsComponent implements OnInit {
   data: any;
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService, private router: Router) {}
 
   ngOnInit() {
     this.dataService.getData().subscribe(response => {
@@ -26,4 +27,13 @@ export class CatFactsComponent implements OnInit {
       this.data = response;
     });
   }
+
+  goToHome(): void {
+    this.router.navigate(['/home']);
+  }
+
+  goToFacts(): void {
+    this.router.navigate(['/facts']);
+  }
 }
+
