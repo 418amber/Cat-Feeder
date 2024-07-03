@@ -1,8 +1,8 @@
 <!-- div only appears if there are more than one fish -->
-<div *ngIf="numFish > 0">
-    <p>The cat has been fed {{ numFish }} fish.</p>
+<div *ngIf="getNumFish() > 0">
+    <p>The cat has been fed {{ getNumFish() }} fish.</p>
  </div>
  <!-- div only appears if there are no fish -->
-  <div *ngIf="numFish == 0">
+  <div *ngIf="getNumFish() == 0">
     <p>The cat is hungry!</p>
   </div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FeederService } from '../feeder.service';
+import { FeederService } from '../../services/feeder.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-cat-feeder',
@@ -12,4 +13,5 @@ export class CatFeederComponent {
   feedCat(): void {
     this.feederService.feedCat();
   }
+
 }
