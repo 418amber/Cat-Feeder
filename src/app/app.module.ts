@@ -9,6 +9,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { CatFactsComponent } from './components/cat-facts/cat-facts.component';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
     CatFeederComponent,
     CatFactsComponent,
     HomeComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
