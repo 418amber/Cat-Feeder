@@ -1,39 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { Router } from '@angular/router';
+import { Observable, Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-cat-facts',
   templateUrl: './cat-facts.component.html',
   styleUrl: './cat-facts.component.css'
 })
-export class CatFactsComponent implements OnInit {
+export class CatFactsComponent implements OnInit, OnDestroy {
   data: any;
+  private destroy$ = new Subject<void>();
 
   constructor(private dataService: DataService, private router: Router) {}
 
-  ngOnInit() {
-    this.dataService.getData().subscribe(response => {
-      this.data = response;
-    })
-  }
-
-  getString(): string {
-    return JSON.stringify(this.data.data, null, 2);
+  ngOnInit(): void {
+    this.getFact();
   }
 
   getFact(): void {
-    this.dataService.getData().subscribe(response => {
+    this.dataService.getData().pipe(takeUntil(this.destroy$)).subscribe(response => {
       this.data = response;
     });
   }
 
-  goToHome(): void {
-    this.router.navigate(['/home']);
-  }
-
-  goToFacts(): void {
-    this.router.navigate(['/facts']);
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }
 
