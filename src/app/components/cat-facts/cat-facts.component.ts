@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
-import { Router } from '@angular/router';
-import { Observable, Subject, takeUntil } from 'rxjs';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-cat-facts',
@@ -12,7 +11,7 @@ export class CatFactsComponent implements OnInit, OnDestroy {
   data: any;
   private destroy$ = new Subject<void>();
 
-  constructor(private dataService: DataService, private router: Router) {}
+  constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
     this.getFact();

@@ -38,7 +38,10 @@ const routes: Routes = [
   exports: [
     RouterModule
   ],
-  providers: [FeederService, DataService, provideHttpClient()],
+  providers: [
+    FeederService, 
+    DataService, 
+    provideHttpClient()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

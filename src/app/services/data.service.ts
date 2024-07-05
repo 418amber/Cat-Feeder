@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
+import { catchError, map, Observable, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +16,9 @@ export class DataService {
           return JSON.stringify(data.data, null, 2);
         }
         return '';
+      }),
+      catchError((error) => {
+        return throwError(() => error);
       })
     );
   }
