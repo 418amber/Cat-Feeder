@@ -18,6 +18,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -41,6 +42,7 @@ const routes: Routes = [
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
+    MatProgressSpinnerModule,
   ],
   exports: [
     RouterModule

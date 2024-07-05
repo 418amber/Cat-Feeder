@@ -9,6 +9,7 @@ import { Subject, takeUntil } from 'rxjs';
 })
 export class CatFactsComponent implements OnInit, OnDestroy {
   data: any;
+  loading: boolean = false;
   private destroy$ = new Subject<void>();
 
   constructor(private dataService: DataService) {}
@@ -18,8 +19,10 @@ export class CatFactsComponent implements OnInit, OnDestroy {
   }
 
   getFact(): void {
+    this.loading = true;
     this.dataService.getData().pipe(takeUntil(this.destroy$)).subscribe(response => {
       this.data = response;
+      this.loading = false;
     });
   }
 

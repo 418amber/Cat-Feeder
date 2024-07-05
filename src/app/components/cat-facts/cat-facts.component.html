@@ -1,4 +1,9 @@
 <div *ngIf="data">
+
+    <div *ngIf="loading" class="spinner-container">
+        <mat-progress-spinner color="warn" mode="indeterminate"></mat-progress-spinner>
+    </div>
+
     <h2>Cool Cat Facts</h2>
 
     <mat-card>

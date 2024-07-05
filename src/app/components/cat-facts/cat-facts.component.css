@@ -9,4 +9,11 @@ mat-card-title {
     margin-top: 1rem;
 }
 
+.spinner-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
 
