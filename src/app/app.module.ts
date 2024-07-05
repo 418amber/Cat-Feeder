@@ -13,7 +13,11 @@ import { provideHttpClient } from '@angular/common/http';
 import { DataService } from './services/data.service';
 
 import { Routes, RouterModule } from '@angular/router';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -33,7 +37,10 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    MatToolbarModule,
+    MatButtonModule,
+    MatCardModule,
   ],
   exports: [
     RouterModule
@@ -41,7 +48,7 @@ const routes: Routes = [
   providers: [
     FeederService, 
     DataService, 
-    provideHttpClient()],
+    provideHttpClient(), provideAnimationsAsync()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

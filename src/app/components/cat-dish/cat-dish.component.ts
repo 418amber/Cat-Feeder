@@ -20,6 +20,10 @@ export class CatDishComponent implements OnInit, OnDestroy {
     });
   }
 
+  feedCat(): void {
+    this.feederService.feedCat();
+  }
+
   getNumFish(): number {
     return this.numFish;
   }

@@ -10,8 +10,6 @@ import { Observable } from 'rxjs';
 export class CatFeederComponent {
   constructor(private feederService: FeederService) { }
 
-  feedCat(): void {
-    this.feederService.feedCat();
-  }
+  
 
 }

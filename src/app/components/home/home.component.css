@@ -1,0 +1,10 @@
+mat-card {
+    background-color: whitesmoke;
+}
+
+mat-card-title { 
+    color: #c0aada; 
+    justify-content: center; 
+    display: flex; 
+    margin-top: 1rem;
+}

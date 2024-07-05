@@ -1,6 +1,15 @@
 <div *ngIf="data">
-    <h1>Cool Cat Facts</h1>
-    <h3>Did You Know?</h3>
-    <p>{{ data }}</p>
-    <button (click)="getFact()">New Fact</button>
+    <h2>Cool Cat Facts</h2>
+
+    <mat-card>
+        <mat-card-title>
+            <h3>Did You Know?</h3>
+        </mat-card-title>
+        
+        <mat-card-content>
+            <p>{{ data }}</p>
+            <button (click)="getFact()">New Fact</button>
+        </mat-card-content>
+    </mat-card>
+    
 </div>

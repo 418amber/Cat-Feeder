@@ -1,8 +1,16 @@
+<pre> ∧,,,∧
+( ̳•·• ̳)
+/   づ♡
+</pre>
+
 <!-- div only appears if there are more than one fish -->
 <div *ngIf="getNumFish() > 0">
-    <p>The cat has been fed {{ getNumFish() }} fish.</p>
- </div>
- <!-- div only appears if there are no fish -->
-  <div *ngIf="getNumFish() == 0">
-    <p>The cat is hungry!</p>
-  </div>
+  <p>The cat has been fed {{ getNumFish() }} fish.</p>
+</div>
+<!-- div only appears if there are no fish -->
+<div *ngIf="getNumFish() == 0">
+  <p>The cat is hungry!</p>
+</div>
+
+<button (click)="feedCat()">Feed the Cat</button>
+
