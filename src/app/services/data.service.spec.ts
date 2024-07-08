@@ -1,63 +1,52 @@
-import { HttpClient, provideHttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { DataService } from './data.service';
-import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
-import { TestBed } from '@angular/core/testing';
+import { throwError } from 'rxjs';
+import { of } from 'rxjs';
 
 describe('DataService', () => {
   let service: DataService;
-  let httpMock: HttpTestingController;
-
+  let httpClientMock: jest.Mocked<HttpClient>;
+ 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [
-        provideHttpClient(),
-        provideHttpClientTesting(),
-      ],
-    });
-    httpMock = TestBed.inject(HttpTestingController);
-    service = TestBed.inject(DataService);
+    httpClientMock = {
+      get: jest.fn(),
+    } as unknown as jest.Mocked<HttpClient>;
+    service = new DataService(httpClientMock);
   });
-
-  afterEach(() => {
-    httpMock.verify();  
-  });
-
+ 
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
-  
+
   it('should return JSON stringify when API returns data', () => {
     const response = {
       data: 'random cat fact',
     };
+    httpClientMock.get.mockReturnValue(of(response));
 
-    service.getData().subscribe((result: any) => {
-      expect(result.data).toBe('random cat fact');
-    });
-
-    const mockRequest = httpMock.expectOne('https://meowfacts.herokuapp.com/');
-    mockRequest.flush(response);
+    service.getData().subscribe((data) => {
+      expect(data).toBe(JSON.stringify(response));
+    });    
   });
 
-  it('should return an empty string when API returns nothing', () => {
+  it('should return empty string when API returns nothing', () => {
     const response = { };
+    httpClientMock.get.mockReturnValue(of(response));
 
-    service.getData().subscribe((result: any) => {
-      expect(result.data).toBe('');
-    });
-
-    const mockRequest = httpMock.expectOne('https://meowfacts.herokuapp.com/');
-    mockRequest.flush(response);
+    service.getData().subscribe((data) => {
+      expect(data).toBe('');
+    });    
   });
-
-  it("should throw error when API server returns error", () => {
-    const mockError = new ProgressEvent('backend error');
-    
-    service.getData().subscribe((error: any) => {
-      expect(error).toBeTruthy();
+ 
+  it('should retrieve an error', () => {
+    const error = 'Error';
+    httpClientMock.get.mockReturnValue(throwError(() => error));
+   
+    service.getData().subscribe({
+      error: (err) => {
+        expect(err).toBe(error);
+      }
     });
-
-    const mockRequest = httpMock.expectOne('https://meowfacts.herokuapp.com/');
-    mockRequest.error(mockError);
   });
+  
 });

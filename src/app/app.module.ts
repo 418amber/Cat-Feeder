@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'facts', component: CatFactsComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', redirectTo: '/home' }, // Redirect any unknown routes to /home
+  { path: '**', redirectTo: '/home' }, 
 ];
 
 @NgModule({
