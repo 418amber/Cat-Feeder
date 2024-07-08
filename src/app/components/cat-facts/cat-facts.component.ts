@@ -12,7 +12,8 @@ export class CatFactsComponent implements OnInit, OnDestroy {
   loading: boolean = false;
   private destroy$ = new Subject<void>();
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService) {
+  }
 
   ngOnInit(): void {
     this.getFact();

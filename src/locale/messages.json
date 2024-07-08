@@ -1,0 +1,15 @@
+{
+  "locale": "en-US",
+  "translations": {
+    "378918250877046877": "The cat has been fed {$INTERPOLATION} fish.",
+    "4841940298696838784": "The cat is hungry!",
+    "3817887941491960989": "{$START_TAG_SPAN}heart_plus{$CLOSE_TAG_SPAN} Feed the Cat\n",
+    "8635556754551913461": "Cool Cat Facts",
+    "2444355101968431231": "Did You Know?",
+    "4206857032306319885": "{$START_TAG_SPAN}lightbulb{$CLOSE_TAG_SPAN} New Fact ",
+    "4624188214297201882": "Press the button to feed the cat!",
+    "6498741222448892488": "Feed the Cat",
+    "2821179408673282599": "Home",
+    "6545576747176125351": "Facts"
+  }
+}

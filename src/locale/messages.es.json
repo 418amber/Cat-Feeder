@@ -1,0 +1,15 @@
+{
+  "locale": "es-PR",
+  "translations": {
+    "378918250877046877": "El gato ha sido alimentado con {$INTERPOLATION} pescado.",
+    "4841940298696838784": "¡El gato tiene hambre!",
+    "3817887941491960989": "{$START_TAG_SPAN}heart_plus{$CLOSE_TAG_SPAN} Alimenta al gato",
+    "8635556754551913461": "Datos interesantes sobre gatos",
+    "2444355101968431231": "¿Sabías?",
+    "4206857032306319885": "{$START_TAG_SPAN}lightbulb{$CLOSE_TAG_SPAN} Hecho Nuevo",
+    "4624188214297201882": "¡Presiona el botón para alimentar al gato!",
+    "6498741222448892488": "Alimenta al gato",
+    "2821179408673282599": "Hogar",
+    "6545576747176125351": "Hechos"
+  }
+}

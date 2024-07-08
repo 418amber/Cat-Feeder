@@ -7,14 +7,14 @@
 
 <!-- div only appears if there are more than one fish -->
 <div *ngIf="getNumFish() > 0">
-  <p>The cat has been fed {{ getNumFish() }} fish.</p>
+  <p i18n>The cat has been fed {{ getNumFish() }} fish.</p>
 </div>
 <!-- div only appears if there are no fish -->
 <div *ngIf="getNumFish() == 0">
-  <p>The cat is hungry!</p>
+  <p i18n>The cat is hungry!</p>
 </div>
 
-<button (click)="feedCat()" class="feed-button" [matBadge]="showBadge ? '!' : null" matBadgePosition="after" matBadgeColor="warn">
+<button i18n (click)="feedCat()" class="feed-button" [matBadge]="showBadge ? '!' : null" matBadgePosition="after" matBadgeColor="warn">
   <span class="material-symbols-outlined">heart_plus</span>
   Feed the Cat
 </button>
