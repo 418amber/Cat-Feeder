@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
 <pre> ∧,,,∧
 ( ̳•·• ̳)
 /   づ♡
@@ -12,5 +14,9 @@
   <p>The cat is hungry!</p>
 </div>
 
-<button (click)="feedCat()">Feed the Cat</button>
+<button (click)="feedCat()" class="feed-button" [matBadge]="showBadge ? '!' : null" matBadgePosition="after" matBadgeColor="warn">
+  <span class="material-symbols-outlined">heart_plus</span>
+  Feed the Cat
+</button>
+
 

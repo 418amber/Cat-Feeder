@@ -11,6 +11,7 @@ import { takeUntil } from 'rxjs/operators';
 export class CatDishComponent implements OnInit, OnDestroy {
   private numFish: number = 0;
   private destroy$ = new Subject<void>();
+  showBadge = true;
 
   constructor(private feederService: FeederService) { }
 
@@ -22,6 +23,7 @@ export class CatDishComponent implements OnInit, OnDestroy {
 
   feedCat(): void {
     this.feederService.feedCat();
+    this.showBadge = false;
   }
 
   getNumFish(): number {

@@ -19,6 +19,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatBadgeModule } from '@angular/material/badge';
+
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -43,6 +45,7 @@ const routes: Routes = [
     MatButtonModule,
     MatCardModule,
     MatProgressSpinnerModule,
+    MatBadgeModule,
   ],
   exports: [
     RouterModule

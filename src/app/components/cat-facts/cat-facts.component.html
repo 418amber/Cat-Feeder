@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
 <div *ngIf="data">
 
     <div *ngIf="loading" class="spinner-container">
@@ -13,7 +15,10 @@
         
         <mat-card-content>
             <p>{{ data }}</p>
-            <button (click)="getFact()">New Fact</button>
+            <button (click)="getFact()" class="fact-button">
+                <span class="material-symbols-outlined">lightbulb</span>
+                New Fact
+            </button>
         </mat-card-content>
     </mat-card>
     
