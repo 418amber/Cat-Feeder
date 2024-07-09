@@ -1,7 +1,5 @@
 # CatFeeder
 
-live_AwXiWmc66sZdyBHX4W0ngV3t9SVTqEwRz27j1ei5f0PWTtnQm1jqLfnutYVDyrJt
-
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.6.
 
 ## Development server
