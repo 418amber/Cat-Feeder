@@ -6,7 +6,7 @@ import { CatFeederComponent } from './components/cat-feeder/cat-feeder.component
 import { RouterModule } from '@angular/router';
 
 import { MatBadgeModule } from '@angular/material/badge';
-import { MatCard, MatCardModule } from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [ 

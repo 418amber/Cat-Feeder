@@ -16,8 +16,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
 import { HomeModule } from './home/home.module';
 import { FactsModule } from './facts/facts.module';
+import { CatalogModule } from './catalog/catalog.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -31,6 +33,10 @@ const routes: Routes = [
   { 
     path: 'facts', 
     loadChildren: () => import('./facts/facts.module').then(m => m.FactsModule) 
+  },
+  { 
+    path: 'catalog', 
+    loadChildren: () => import('./catalog/catalog.module').then(m => m.CatalogModule) 
   },
   {
     path: '',
@@ -52,6 +58,7 @@ const routes: Routes = [
     MatMenuModule,
     HomeModule,
     FactsModule,
+    CatalogModule,
   ],
   exports: [
     RouterModule
