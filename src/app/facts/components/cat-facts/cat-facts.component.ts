@@ -21,7 +21,7 @@ export class CatFactsComponent implements OnInit, OnDestroy {
 
   getFact(): void {
     this.loading = true;
-    this.dataService.getData().pipe(takeUntil(this.destroy$)).subscribe(response => {
+    this.dataService.getFact().pipe(takeUntil(this.destroy$)).subscribe(response => {
       this.data = response;
       this.loading = false;
     });

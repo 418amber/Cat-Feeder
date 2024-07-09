@@ -1,1 +1,39 @@
-<p>catalog works!</p>
+<div *ngIf="imageURL">
+
+    <h2 i18n>Catalog</h2>
+
+    <mat-card>
+        <mat-card-title>
+            <h3 i18n>Cat Pictures</h3>
+        </mat-card-title>
+
+        <mat-card-content class="card-content">
+
+            <!-- row 1 -->
+            <mat-card class="small-card">
+                <mat-card-content>
+                    <img [src]="imageURL" alt="cat 1" class="cat-image"/>                
+                </mat-card-content>
+            </mat-card>
+            
+            <mat-card class="small-card">
+                <mat-card-content>
+                    <img [src]="imageURL" alt="cat 2" class="cat-image"/>                
+                </mat-card-content>            
+            </mat-card>
+
+            <mat-card class="small-card">
+                <mat-card-content>
+                    <img [src]="imageURL" alt="cat 3" class="cat-image"/>                
+                </mat-card-content>            
+            </mat-card>
+
+            <mat-card class="small-card">
+                <mat-card-content>
+                    <img [src]="imageURL" alt="cat 4" class="cat-image"/>                
+                </mat-card-content>            
+            </mat-card>
+
+        </mat-card-content>
+    </mat-card>
+</div>

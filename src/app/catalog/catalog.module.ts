@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CatalogComponent } from './components/catalog/catalog.component';
 import { RouterModule } from '@angular/router';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     RouterModule.forChild([
       { path: '', component: CatalogComponent }
-    ])
+    ]),
+    MatCardModule,
   ]
 })
 export class CatalogModule { }

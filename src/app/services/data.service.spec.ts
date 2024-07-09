@@ -24,7 +24,7 @@ describe('DataService', () => {
     };
     httpClientMock.get.mockReturnValue(of(response));
 
-    service.getData().subscribe((data) => {
+    service.getFact().subscribe((data) => {
       expect(data).toBe(JSON.stringify(response));
     });    
   });
@@ -33,7 +33,7 @@ describe('DataService', () => {
     const response = { };
     httpClientMock.get.mockReturnValue(of(response));
 
-    service.getData().subscribe((data) => {
+    service.getFact().subscribe((data) => {
       expect(data).toBe('');
     });    
   });
@@ -42,7 +42,7 @@ describe('DataService', () => {
     const error = 'Error';
     httpClientMock.get.mockReturnValue(throwError(() => error));
    
-    service.getData().subscribe({
+    service.getFact().subscribe({
       error: (err) => {
         expect(err).toBe(error);
       }
