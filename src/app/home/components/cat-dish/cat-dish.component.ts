@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FeederService } from '../../services/feeder.service';
+import { FeederService } from '../../../services/feeder.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 

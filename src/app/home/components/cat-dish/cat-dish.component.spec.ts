@@ -1,5 +1,5 @@
 import { CatDishComponent } from './cat-dish.component';
-import { FeederService } from '../../services/feeder.service';
+import { FeederService } from '../../../services/feeder.service';
 import { BehaviorSubject } from 'rxjs';
 
 describe('CatDishComponent', () => {

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FeederService } from '../../services/feeder.service';
+import { FeederService } from '../../../services/feeder.service';
 import { Observable } from 'rxjs';
 
 @Component({

@@ -2,10 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { CatDishComponent } from './components/cat-dish/cat-dish.component';
-import { CatFeederComponent } from './components/cat-feeder/cat-feeder.component';
-import { CatFactsComponent } from './components/cat-facts/cat-facts.component';
-import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
 import { FeederService } from './services/feeder.service';
@@ -17,30 +13,35 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatBadgeModule } from '@angular/material/badge';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HomeModule } from './home/home.module';
+import { FactsModule } from './facts/facts.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'facts', component: CatFactsComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', redirectTo: '/home' }, 
+  { 
+    path: 'home', 
+    loadChildren: () => import('./home/home.module').then(m => m.HomeModule) 
+  },
+  { 
+    path: 'facts', 
+    loadChildren: () => import('./facts/facts.module').then(m => m.FactsModule) 
+  },
+  {
+    path: '',
+    redirectTo: '',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    CatDishComponent,
-    CatFeederComponent,
-    CatFactsComponent,
-    HomeComponent,
     NavbarComponent,
   ],
   imports: [
@@ -48,9 +49,9 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     MatToolbarModule,
     MatButtonModule,
-    MatCardModule,
-    MatProgressSpinnerModule,
-    MatBadgeModule,
+    MatMenuModule,
+    HomeModule,
+    FactsModule,
   ],
   exports: [
     RouterModule
