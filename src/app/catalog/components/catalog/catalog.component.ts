@@ -8,20 +8,37 @@ import { Subject, takeUntil } from 'rxjs';
   styleUrl: './catalog.component.css'
 })
 export class CatalogComponent implements OnInit, OnDestroy {
-  imageURL: any;
+  imageUrls: string[] = [];
   private destroy$ = new Subject<void>();
+
+  private page = 1;
+  private readonly limit = 10;
+
+  throttle = 0;
+  distance = 2;
 
   constructor(private dataService: DataService) {
   }
 
   ngOnInit(): void {
-    this.getImage();
+    this.loadInitialImages();
   }
 
-  getImage(): void {
-    this.dataService.getImage().pipe(takeUntil(this.destroy$)).subscribe(response => {
-      this.imageURL = response;
+  loadInitialImages(): void {
+    this.dataService.getImages(this.limit).pipe(takeUntil(this.destroy$)).subscribe(images => {
+      this.imageUrls = images;
     });
+  }
+
+  loadMoreImages(): void {
+    this.dataService.getImages(this.limit).pipe(takeUntil(this.destroy$)).subscribe(images => {
+      this.imageUrls = this.imageUrls.concat(images);
+    });
+  }
+
+  onScroll(): void {
+    this.page++;
+    this.loadMoreImages();
   }
 
   ngOnDestroy(): void {

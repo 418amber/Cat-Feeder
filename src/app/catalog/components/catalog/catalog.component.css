@@ -10,9 +10,14 @@ mat-card-title {
 }
 
 .small-card {
-    width: calc(25% - 2rem);
+    width: calc(33.33% - 2rem); /* 3 cards in one row */
     text-align: center;
     margin: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px; /* rounded edges */
+    overflow: hidden;
 }
 
 .card-content {
@@ -25,4 +30,21 @@ mat-card-title {
     max-width: 100%; 
     height: auto; 
     border-radius: 8px; 
+}
+
+.image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; 
+}
+  
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px; 
+}
+  
+.col {
+    flex: 0 0 calc(33.33% - 10px);
+    margin-bottom: 10px; 
 }

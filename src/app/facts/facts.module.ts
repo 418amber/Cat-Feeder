@@ -12,11 +12,11 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   ],
   imports: [
     CommonModule,
+    MatCardModule,
+    MatProgressSpinnerModule,
     RouterModule.forChild([
       { path: '', component: CatFactsComponent }
     ]),
-    MatCardModule,
-    MatProgressSpinnerModule,
   ]
 })
 export class FactsModule { }

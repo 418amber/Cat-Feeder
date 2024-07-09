@@ -7,6 +7,9 @@ import { catchError, map, Observable, throwError } from 'rxjs';
 })
 export class DataService {
 
+  private url = `https://api.thecatapi.com/v1/images/search`;
+  private apiKey = "live_AwXiWmc66sZdyBHX4W0ngV3t9SVTqEwRz27j1ei5f0PWTtnQm1jqLfnutYVDyrJt";
+
   constructor(private http: HttpClient) { }
 
   getFact(): Observable<any> {
@@ -23,17 +26,15 @@ export class DataService {
     );
   }
 
-  getImage(): Observable<any> {
-    return this.http.get('https://api.thecatapi.com/v1/images/search').pipe(
-      map((data: any) => {
-        if(data[0]?.url) {
-          return data[0].url;
-        }
-        return '';
+  getImages(limit: number = 20): Observable<string[]> {
+    const url = `${this.url}?limit=${limit}`;
+    return this.http.get<any[]>(url, { headers: { 'x-api-key': this.apiKey } }).pipe(
+      map((data: any[]) => {
+        return data.map(item => item.url);
       }),
       catchError((error) => {
         return throwError(() => error);
       })
-    )
+    );
   }
 }

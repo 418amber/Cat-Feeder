@@ -1,39 +1,24 @@
-<div *ngIf="imageURL">
+<div *ngIf="imageUrls">
 
-    <h2 i18n>Catalog</h2>
+    <h2 i18n>Cat-alog</h2>
 
-    <mat-card>
+    <mat-card infinite-scroll
+              [infiniteScrollDistance]="distance"
+              [infiniteScrollThrottle]="throttle"
+              (scrolled)="onScroll()">
         <mat-card-title>
-            <h3 i18n>Cat Pictures</h3>
+            <h3 i18n>Keep Scrolling!</h3>
         </mat-card-title>
 
         <mat-card-content class="card-content">
-
-            <!-- row 1 -->
-            <mat-card class="small-card">
-                <mat-card-content>
-                    <img [src]="imageURL" alt="cat 1" class="cat-image"/>                
-                </mat-card-content>
-            </mat-card>
-            
-            <mat-card class="small-card">
-                <mat-card-content>
-                    <img [src]="imageURL" alt="cat 2" class="cat-image"/>                
-                </mat-card-content>            
-            </mat-card>
-
-            <mat-card class="small-card">
-                <mat-card-content>
-                    <img [src]="imageURL" alt="cat 3" class="cat-image"/>                
-                </mat-card-content>            
-            </mat-card>
-
-            <mat-card class="small-card">
-                <mat-card-content>
-                    <img [src]="imageURL" alt="cat 4" class="cat-image"/>                
-                </mat-card-content>            
-            </mat-card>
-
+            <div class="image-grid">
+                <mat-card *ngFor="let img of imageUrls" class="small-card">
+                    <mat-card-content>
+                        <img [src]="img" alt="cat image" class="cat-image"/>
+                    </mat-card-content>
+                </mat-card>
+            </div>
         </mat-card-content>
     </mat-card>
+
 </div>

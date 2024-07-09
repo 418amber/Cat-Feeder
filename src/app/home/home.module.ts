@@ -16,11 +16,11 @@ import { MatCardModule } from '@angular/material/card';
   ],
   imports: [
     CommonModule, 
+    MatBadgeModule,
+    MatCardModule,
     RouterModule.forChild([
       { path: '', component: HomeComponent }
     ]),
-    MatBadgeModule,
-    MatCardModule,
   ]
 })
 export class HomeModule { }
