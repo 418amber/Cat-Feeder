@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FeederService } from '../../../services/feeder.service';
+import { PetService } from '../../../services/pet.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
@@ -10,14 +11,18 @@ import { takeUntil } from 'rxjs/operators';
 })
 export class CatDishComponent implements OnInit, OnDestroy {
   private numFish: number = 0;
+  private numPets: number = 0;
   private destroy$ = new Subject<void>();
   showBadge = true;
 
-  constructor(private feederService: FeederService) { }
+  constructor(private feederService: FeederService, private petService: PetService) { }
 
   ngOnInit(): void {
     this.feederService.getFishCount().pipe(takeUntil(this.destroy$)).subscribe((count: number) => {
       this.numFish = count;
+    });
+    this.petService.getPetCount().pipe(takeUntil(this.destroy$)).subscribe((count: number) => {
+      this.numPets = count;
     });
   }
 
@@ -28,6 +33,14 @@ export class CatDishComponent implements OnInit, OnDestroy {
 
   getNumFish(): number {
     return this.numFish;
+  }
+
+  petCat(): void {
+    this.petService.petCat();
+  }
+
+  getNumPets(): number {
+    return this.numPets;
   }
 
   ngOnDestroy(): void {

@@ -14,9 +14,27 @@
   <p i18n>The cat is hungry!</p>
 </div>
 
-<button i18n (click)="feedCat()" class="feed-button" [matBadge]="showBadge ? '!' : null" matBadgePosition="after" matBadgeColor="warn">
-  <span class="material-symbols-outlined">heart_plus</span>
-  Feed the Cat
-</button>
+<!-- div only appears if the cat has been pet -->
+<div *ngIf="getNumPets() > 0">
+  <p i18n>The cat has been pet {{ getNumPets() }} times.</p>
+</div>
+<!-- div only appears if there are no pats -->
+<div *ngIf="getNumPets() == 0">
+  <p i18n>The cat is lonely!</p>
+</div>
+
+<div class="button-container">
+  <button i18n (click)="feedCat()" class="button" [matBadge]="showBadge ? '!' : null" matBadgePosition="after" matBadgeColor="warn">
+    <span class="material-symbols-outlined">set_meal</span>
+    Feed the Cat
+  </button>
+
+  <button i18n (click)="petCat()" class="button">
+    <span class="material-symbols-outlined">heart_plus</span>
+    Pet the Cat
+  </button>
+</div>
+
+
 
 
